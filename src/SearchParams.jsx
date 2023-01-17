@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 import Pet from "./Pet";
+import useBreedList from "./useBreedList";
 
 const SearchParams = () => {
   const [location, setLocation] = useState("");
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
   const [pets, setPets] = useState([]);
-  const breeds = [];
+  const [breeds] = useBreedList(animal);
 
   useEffect(() => {
     requestPets();
