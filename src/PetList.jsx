@@ -15,6 +15,7 @@ const PetList = ({ pets }) => {
               name={p.name}
               images={p.images}
               location={`${p.city}, ${p.state}`}
+              id={p.id}
             />
           );
         })
