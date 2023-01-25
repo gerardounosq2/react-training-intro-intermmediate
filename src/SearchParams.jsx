@@ -1,10 +1,10 @@
-import { useState, useContext } from "react";
-const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
-import useBreedList from "./useBreedList";
-import PetList from "./PetList";
 import { useQuery } from "@tanstack/react-query";
-import fetchSearch from "./fetchSearch";
+import { useContext, useState } from "react";
 import AdoptedPetContext from "./AdoptedPetContext";
+import fetchSearch from "./fetchSearch";
+import PetList from "./PetList";
+import useBreedList from "./useBreedList";
+const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
 const SearchParams = () => {
   const [requestParams, setRequestParams] = useState({
@@ -20,8 +20,9 @@ const SearchParams = () => {
   const results = useQuery(["search", requestParams], fetchSearch);
   const pets = results?.data?.pets ?? [];
   return (
-    <div className="search-params">
+    <div className="my-0 mx-auto w-11/12">
       <form
+        className="p-10 mb-10 rounded-lg bg-gray-200 shadow-lg flex flex-col justify-center items-center"
         onSubmit={(e) => {
           e.preventDefault();
           const formData = new FormData(e.target);
